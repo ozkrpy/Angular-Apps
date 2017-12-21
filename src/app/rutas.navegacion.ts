@@ -9,4 +9,5 @@ export const RoutesClass: Routes = [
     { path: 'pacientes', component: PacientesComponent },
     { path: 'alimentos', component: AlimentosComponent },
     { path: '**', component: DietasComponent }
+    
 ];
