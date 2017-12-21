@@ -1,3 +1,5 @@
+# INFO PERSONAL
+
 Author: ozkrpy.
 Date: 21/12/2017. 
 Last modified: 21/12/2017 16:56.
