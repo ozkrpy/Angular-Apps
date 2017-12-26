@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms'
 
+import { FlexLayoutModule } from "@angular/flex-layout";
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {  
   MatButtonModule, 
@@ -23,7 +25,8 @@ import {
   MatTabsModule,
   MatStepperModule,
   MatProgressSpinnerModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatSidenavModule
 } from '@angular/material';
 import 'hammerjs';
 
@@ -56,6 +59,7 @@ import { CrearPacienteComponent } from './dialogs/crear-paciente/crear-paciente.
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    FlexLayoutModule,
     MatButtonModule, 
     MatMenuModule, 
     MatToolbarModule, 
@@ -73,6 +77,7 @@ import { CrearPacienteComponent } from './dialogs/crear-paciente/crear-paciente.
     MatStepperModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
+    MatSidenavModule,
     RouterModule.forRoot(RoutesClass, { useHash: true })
   ],
   providers: [

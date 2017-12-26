@@ -15,13 +15,13 @@ export class ToolbarComponent implements OnInit {
 
   goHome() {
     this.router.navigate(['']);
- }
+  }
 
- goAlimentos() {
-    this.router.navigate(['alimentos']);
- }
+  goAlimentos() {
+      this.router.navigate(['alimentos']);
+  }
 
- goPacientes() {
-    this.router.navigate(['pacientes']);
- }
+  goPacientes() {
+      this.router.navigate(['pacientes']);
+  }
 }
