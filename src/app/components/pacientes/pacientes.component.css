@@ -6,6 +6,10 @@
     cursor: pointer;
 }
 
+.minimo-ancho {
+    min-width: 1%;
+}
+
 small {
     color: #A9A9BB;
 }
