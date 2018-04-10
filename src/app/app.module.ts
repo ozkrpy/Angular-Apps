@@ -26,7 +26,8 @@ import {
   MatStepperModule,
   MatProgressSpinnerModule,
   MatSnackBarModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatTableModule
 } from '@angular/material';
 import 'hammerjs';
 
@@ -78,6 +79,7 @@ import { CrearPacienteComponent } from './dialogs/crear-paciente/crear-paciente.
     MatProgressSpinnerModule,
     MatSnackBarModule,
     MatSidenavModule,
+    MatTableModule,
     RouterModule.forRoot(RoutesClass, { useHash: true })
   ],
   providers: [

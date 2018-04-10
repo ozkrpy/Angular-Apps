@@ -6,6 +6,7 @@ import * as moment from 'moment';
 
 import { PacienteDetalle } from '../data-model/paciente-detalle';
 import { Servidor } from '../data-model/datos-servidor';
+import { AlimentoDetalle } from '../data-model/alimento-detalle';
 
 @Injectable()
 export class ApisService {
@@ -231,4 +232,50 @@ export class ApisService {
                .catch((error:any) => Observable.throw(error.json() || 'catch en la API Server error')); 
   }
 
+  todosLosAlimentos(): Observable<AlimentoDetalle[]> {
+    let apiURL = `${this.apiRoot}` + Servidor[0].server.methods.alimentos;
+    console.log("metodo recupera todos los alimentos: " + apiURL);
+    return  this.httpRequest
+                .get(apiURL)
+                .map(
+                      res => {
+                        let result = res.json().map(
+                          item => {
+                            return new AlimentoDetalle(
+                                          item.codigo_alimento,
+                                          item.descripcion_alimento,
+                                          item.descripcion_tipo_alimento,
+                                          item.medida_casera,
+                                          item.medida_casera_unidad,
+                                          item.medida_real,
+                                          item.medida_real_unidad,
+                                          item.hidratos_carbono,
+                                          item.unidad_medida_hidratos_carbono,
+                                          item.proteina,
+                                          item.unidad_medida_proteina,
+                                          item.grasa,
+                                          item.unidad_medida_grasa,
+                                          item.sodio,
+                                          item.unidad_medida_sodio,
+                                          item.potasio,
+                                          item.unidad_medida_potasio,
+                                          item.fosforo,
+                                          item.unidad_medida_fosforo,
+                                          item.calcio,
+                                          item.unidad_medida_calcio,
+                                          item.hierro,
+                                          item.unidad_medida_hierro,
+                                          item.colesterol,
+                                          item.unidad_medida_colesterol,
+                                          item.purinas,
+                                          item.unidad_medida_purinas,
+                                          item.fibra,
+                                          item.unidad_medida_fibra,
+                                          item.agua,
+                                          item.unidad_medida_agua,
+                                          item.calorias)
+                          });
+                        return result;
+                });
+  }
 }

@@ -19,6 +19,7 @@ export const Servidor = [
                 pacientePesoIdeal: '/pacientePesoIdeal',
                 pacienteAlta: '/pacienteAgregar',
                 pacienteEliminar: '/pacienteEliminar',
+                alimentos: '/alimentos',
                 dietas: '/dietas',
                 dietasById: '/dietas/'
             }
