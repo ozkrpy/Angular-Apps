@@ -42,6 +42,7 @@ import { AlimentosComponent } from './components/alimentos/alimentos.component';
 import { DietasComponent } from './components/dietas/dietas.component';
 import { PacienteDetallesComponent } from './dialogs/paciente-detalles/paciente-detalles.component';
 import { CrearPacienteComponent } from './dialogs/crear-paciente/crear-paciente.component';
+import { AlimentosDetalleComponent } from './dialogs/alimentos-detalle/alimentos-detalle.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { CrearPacienteComponent } from './dialogs/crear-paciente/crear-paciente.
     DietasComponent,
     PacienteDetallesComponent,
     CrearPacienteComponent,
+    AlimentosDetalleComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,7 +89,8 @@ import { CrearPacienteComponent } from './dialogs/crear-paciente/crear-paciente.
   ],
   entryComponents: [
     PacienteDetallesComponent,
-    CrearPacienteComponent
+    CrearPacienteComponent,
+    AlimentosDetalleComponent
   ],
   bootstrap: [
     AppComponent

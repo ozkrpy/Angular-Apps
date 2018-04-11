@@ -278,4 +278,12 @@ export class ApisService {
                         return result;
                 });
   }
+
+  alimentoPorCodigo(codigoAlimento: number): Observable<AlimentoDetalle> {
+    let apiURL = `${this.apiRoot}` + Servidor[0].server.methods.alimentoPorId + codigoAlimento;
+    return this.httpRequest
+               .get(apiURL)
+               .map((r: Response) => r.json() as AlimentoDetalle) 
+               .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
 }

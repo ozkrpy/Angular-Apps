@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-
-import {CollectionViewer, DataSource} from "@angular/cdk/collections";
+import { MatDialog } from '@angular/material';
 
 import { ApisService } from '../../services/apis.service';
 import { AlimentoDetalle } from '../../data-model/alimento-detalle';
+import { AlimentosDatasource } from '../../data-model/alimentos-datasource';
+
+import { AlimentosDetalleComponent } from '../../dialogs/alimentos-detalle/alimentos-detalle.component';
 
 @Component({
   selector: 'app-alimentos',
@@ -12,14 +14,16 @@ import { AlimentoDetalle } from '../../data-model/alimento-detalle';
   styleUrls: ['./alimentos.component.css']
 })
 export class AlimentosComponent implements OnInit {
+  dialogResult: string = "";
 
   private loading: boolean = false;
   private todosAlimentos: Observable<AlimentoDetalle[]>;
 
-  dataSource = new UserDataSource(this.ws);
+  dataSource = new AlimentosDatasource(this.ws);
   displayedColumns = ['codigo', 'descripcion', 'tipo', 'medida', 'hidratos', 'proteinas', 'grasas', 'fibras', 'edicion'];
   
-  constructor(private ws: ApisService) {
+  constructor(private ws: ApisService, 
+              public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -33,17 +37,16 @@ export class AlimentosComponent implements OnInit {
 
   detalleAlimento(codigo: number) {
     console.log("metodo para detalle de alimento: " + codigo);
-    
+    let dialogRef = this.dialog.open( 
+                                      AlimentosDetalleComponent, 
+                                      { width: '70%', height: '', data: codigo}
+    );
+    dialogRef.afterClosed().subscribe(result => {
+                                        console.log(`Dialogo cerrado: ${result}`);
+                                        this.dialogResult = result;
+                                        // this.actualizaListaPacientes();//this.todosLosPacientes = this.ws.todosLosPacientes();
+    });
   }
+
 }
 
-export class UserDataSource extends DataSource<any> {
-  constructor(private ws: ApisService) {
-    super();
-  }
-  connect(): Observable<AlimentoDetalle[]> {
-    return this.ws.todosLosAlimentos();
-  }
-
-  disconnect() {}
-}
